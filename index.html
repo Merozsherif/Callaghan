@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O'Callaghan Town &amp; Country Real Estate — Sherry O'Callaghan | Kerry &amp; Cork</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1C1912;
+    --paper:#F6F1E6;
+    --paper-2:#FFFDF8;
+    --line:#DCD3BE;
+    --red:#8E2A22;
+    --red-dark:#701F19;
+    --moss:#4B5740;
+    --moss-light:#7C8A6C;
+    --stone:#8A8172;
+    --gold:#B08A3E;
+    --shadow: 0 20px 50px rgba(28,25,18,0.10);
+    --shadow-sm: 0 6px 18px rgba(28,25,18,0.08);
+    --radius: 4px;
+    --serif:'Fraunces', serif;
+    --sans:'Work Sans', sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--sans);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  ::selection{background:var(--red);color:var(--paper-2);}
+
+  /* ---------- decorative key icon ---------- */
+  .key-mark{display:inline-block;}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    background:var(--ink);
+    color:var(--paper-2);
+    font-size:0.78rem;
+    letter-spacing:.03em;
+  }
+  .topbar .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:9px;padding-bottom:9px;
+    gap:16px;flex-wrap:wrap;
+  }
+  .topbar-left{display:flex;gap:22px;flex-wrap:wrap;opacity:.9;}
+  .topbar a.phone{font-weight:600;color:var(--paper-2);}
+  .topbar a.phone:hover{color:#E7CFA8;}
+
+  /* ---------- header ---------- */
+  header.site{
+    background:var(--paper-2);
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:50;
+  }
+  .nav-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 0;
+    gap:24px;
+  }
+  .brand{display:flex;align-items:center;gap:14px;}
+  .brand img{height:56px;width:56px;object-fit:contain;flex-shrink:0;}
+  .brand-word{
+    font-family:var(--serif);
+    line-height:1.05;
+  }
+  .brand-word .line1{font-size:1.05rem;font-weight:600;letter-spacing:.01em;}
+  .brand-word .line2{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-top:2px;}
+
+  nav.main-links{display:flex;gap:30px;align-items:center;}
+  nav.main-links a{
+    font-size:.86rem;font-weight:600;letter-spacing:.02em;
+    padding:6px 0;position:relative;color:var(--ink);
+  }
+  nav.main-links a::after{
+    content:'';position:absolute;left:0;bottom:0;width:0;height:2px;
+    background:var(--red);transition:width .3s ease;
+  }
+  nav.main-links a:hover::after{width:100%;}
+
+  .nav-cta{
+    display:flex;align-items:center;gap:18px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--sans);font-weight:700;font-size:.86rem;
+    letter-spacing:.02em;
+    padding:12px 24px;border-radius:var(--radius);
+    transition:.25s ease;border:1.5px solid transparent;
+    white-space:nowrap;
+  }
+  .btn-solid{background:var(--red);color:#fff;}
+  .btn-solid:hover{background:var(--red-dark);transform:translateY(-1px);box-shadow:var(--shadow-sm);}
+  .btn-outline{background:transparent;border-color:var(--ink);color:var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:var(--paper-2);}
+  .btn-ghost{background:transparent;color:var(--ink);text-decoration:underline;text-underline-offset:4px;}
+
+  .menu-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 84px;
+    background:
+      radial-gradient(700px 400px at 88% -10%, rgba(142,42,34,0.07), transparent 65%),
+      var(--paper);
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero .wrap{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--red);margin-bottom:22px;
+  }
+  .eyebrow::before{content:'';width:26px;height:1.5px;background:var(--red);display:inline-block;}
+  .hero h1{
+    font-family:var(--serif);font-weight:600;
+    font-size:3.4rem;line-height:1.08;letter-spacing:-.01em;
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:italic;color:var(--red);font-weight:500;
+  }
+  .hero p.lede{
+    font-size:1.14rem;color:#4B4636;max-width:480px;margin-bottom:32px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px;}
+  .hero-stats{display:flex;gap:34px;flex-wrap:wrap;}
+  .hero-stats div{border-left:2px solid var(--line);padding-left:14px;}
+  .hero-stats .num{font-family:var(--serif);font-size:1.5rem;font-weight:600;display:block;}
+  .hero-stats .lab{font-size:.74rem;color:var(--stone);text-transform:uppercase;letter-spacing:.08em;}
+
+  /* seal graphic */
+  .seal-wrap{position:relative;display:flex;align-items:center;justify-content:center;}
+  .seal{
+    position:relative;width:340px;height:340px;border-radius:50%;
+    background:var(--paper-2);
+    border:1.5px solid var(--line);
+    box-shadow:var(--shadow);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .seal::before{
+    content:'';position:absolute;inset:14px;border-radius:50%;
+    border:1px dashed var(--line);
+  }
+  .seal .ring-text{
+    position:absolute;inset:0;
+    animation:spin 40s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .seal-core{
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+    text-align:center;
+  }
+  .seal-core svg{width:58px;height:58px;}
+  .seal-core .est{font-family:var(--serif);font-size:.72rem;letter-spacing:.12em;color:var(--stone);text-transform:uppercase;}
+  .seal-badge{
+    position:absolute;bottom:6px;right:6px;
+    background:var(--ink);color:var(--paper-2);
+    width:78px;height:78px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex-direction:column;text-align:center;line-height:1.15;
+    border:4px solid var(--paper);
+    box-shadow:var(--shadow-sm);
+  }
+  .seal-badge .n{font-family:var(--serif);font-weight:700;font-size:1.05rem;}
+  .seal-badge .t{font-size:.5rem;letter-spacing:.06em;text-transform:uppercase;opacity:.85;}
+
+  /* ---------- trust strip ---------- */
+  .trust{
+    background:var(--ink);color:var(--paper-2);
+    padding:26px 0;
+  }
+  .trust .wrap{
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:22px;
+  }
+  .trust-item{display:flex;align-items:center;gap:12px;font-size:.86rem;}
+  .trust-item svg{width:20px;height:20px;flex-shrink:0;color:#E7CFA8;}
+  .trust-item strong{display:block;font-family:var(--serif);font-size:1rem;font-weight:600;}
+  .trust-item span{color:#C9C3B4;font-size:.78rem;}
+
+  /* ---------- section shell ---------- */
+  section{padding:96px 0;}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;gap:24px;
+    margin-bottom:48px;flex-wrap:wrap;
+  }
+  .section-label{
+    font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--red);margin-bottom:12px;display:block;
+  }
+  .section-title{
+    font-family:var(--serif);font-weight:600;font-size:2.3rem;letter-spacing:-.01em;
+    max-width:640px;
+  }
+  .section-desc{color:var(--stone);max-width:480px;font-size:.98rem;}
+
+  /* ---------- town & country split ---------- */
+  .split{
+    background:var(--paper-2);border-bottom:1px solid var(--line);
+  }
+  .split-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    border:1px solid var(--line);border-radius:6px;overflow:hidden;
+  }
+  .split-col{
+    padding:48px 44px;position:relative;
+  }
+  .split-col.town{background:var(--paper-2);border-right:1px solid var(--line);}
+  .split-col.country{background:#F2EDDF;}
+  .split-col .tag{
+    font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--moss);
+    margin-bottom:10px;display:block;
+  }
+  .split-col.town .tag{color:var(--red);}
+  .split-col h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin-bottom:12px;}
+  .split-col p{color:#514C3E;font-size:.95rem;margin-bottom:22px;}
+  .split-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
+  .split-col li{
+    font-size:.86rem;display:flex;align-items:center;gap:9px;color:#4B4636;
+  }
+  .split-col li svg{width:14px;height:14px;flex-shrink:0;color:var(--stone);}
+
+  /* ---------- property grid ---------- */
+  .prop-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:26px;
+  }
+  .prop-card{
+    background:var(--paper-2);border:1px solid var(--line);border-radius:6px;
+    overflow:hidden;transition:.3s ease;
+  }
+  .prop-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#C9BE9E;}
+  .prop-media{
+    height:168px;background:
+      linear-gradient(135deg, #E7DFC8 0%, #D8CDAE 100%);
+    position:relative;display:flex;align-items:center;justify-content:center;
+  }
+  .prop-media svg{width:44px;height:44px;color:#B7AA82;opacity:.7;}
+  .prop-status{
+    position:absolute;top:12px;left:12px;
+    background:var(--ink);color:var(--paper-2);
+    font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:5px 11px;border-radius:20px;
+  }
+  .prop-status.sold{background:var(--moss);}
+  .prop-body{padding:20px 22px 24px;}
+  .prop-loc{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--stone);margin-bottom:6px;}
+  .prop-name{font-family:var(--serif);font-weight:600;font-size:1.12rem;margin-bottom:10px;line-height:1.3;}
+  .prop-specs{
+    display:flex;gap:14px;font-size:.78rem;color:var(--stone);margin-bottom:14px;flex-wrap:wrap;
+  }
+  .prop-specs span{display:flex;align-items:center;gap:5px;}
+  .prop-price{
+    font-family:var(--serif);font-weight:600;font-size:1.05rem;color:var(--red);
+    padding-top:14px;border-top:1px solid var(--line);
+  }
+  .prop-price small{display:block;font-family:var(--sans);font-weight:500;font-size:.7rem;color:var(--stone);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;}
+
+  .view-all{text-align:center;margin-top:44px;}
+
+  /* ---------- services ---------- */
+  .services{background:var(--ink);color:var(--paper-2);}
+  .services .section-label{color:#E7CFA8;}
+  .services .section-title{color:var(--paper-2);}
+  .services .section-desc{color:#B6B0A0;}
+  .serv-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:1px;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.12);
+  }
+  .serv-card{
+    background:var(--ink);padding:32px 24px;
+  }
+  .serv-card .idx{
+    font-family:var(--serif);font-size:.85rem;color:#E7CFA8;margin-bottom:18px;display:block;
+  }
+  .serv-card h4{font-family:var(--serif);font-weight:600;font-size:1.08rem;margin-bottom:10px;line-height:1.3;}
+  .serv-card p{font-size:.82rem;color:#B6B0A0;}
+
+  /* ---------- field notes (instagram-style) ---------- */
+  .field{background:var(--paper);}
+  .field-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:22px;
+  }
+  .field-card{
+    background:var(--paper-2);border:1px solid var(--line);border-radius:6px;
+    padding:26px 22px;display:flex;flex-direction:column;gap:14px;
+  }
+  .field-date{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--stone);}
+  .field-card p{font-size:.9rem;color:#3F3B2F;flex-grow:1;}
+  .field-tags{font-size:.76rem;color:var(--red);font-weight:600;}
+  .field-foot{
+    text-align:center;margin-top:44px;
+    display:flex;justify-content:center;align-items:center;gap:10px;
+  }
+
+  /* ---------- blog ---------- */
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .blog-card{
+    border-bottom:2px solid var(--ink);padding-bottom:20px;
+  }
+  .blog-date{font-size:.74rem;color:var(--stone);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;}
+  .blog-card h4{font-family:var(--serif);font-weight:600;font-size:1.15rem;margin-bottom:10px;line-height:1.35;}
+  .blog-card a.read{font-size:.82rem;font-weight:700;color:var(--red);}
+  .blog-card a.read:hover{text-decoration:underline;}
+
+  /* ---------- reviews ---------- */
+  .reviews{
+    background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    text-align:center;
+  }
+  .reviews .stars{color:var(--gold);font-size:1.6rem;letter-spacing:4px;margin-bottom:14px;}
+  .reviews h3{font-family:var(--serif);font-size:1.8rem;font-weight:600;margin-bottom:8px;}
+  .reviews p{color:var(--stone);margin-bottom:26px;}
+
+  /* ---------- CTA / contact ---------- */
+  .cta{
+    background:
+      radial-gradient(600px 320px at 12% 0%, rgba(142,42,34,0.10), transparent 60%),
+      var(--paper);
+  }
+  .cta-card{
+    background:var(--paper-2);border:1px solid var(--line);border-radius:8px;
+    box-shadow:var(--shadow);
+    display:grid;grid-template-columns:1fr 1fr;overflow:hidden;
+  }
+  .cta-left{
+    padding:56px 48px;background:var(--ink);color:var(--paper-2);
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .cta-left .section-label{color:#E7CFA8;}
+  .cta-left h3{font-family:var(--serif);font-size:1.9rem;font-weight:600;margin-bottom:16px;line-height:1.25;}
+  .cta-left p{color:#B6B0A0;font-size:.95rem;margin-bottom:26px;}
+  .cta-left .cline{
+    display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:.9rem;
+  }
+  .cta-left .cline svg{width:18px;height:18px;color:#E7CFA8;flex-shrink:0;}
+  .cta-right{padding:48px 44px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+  .form-group label{font-size:.8rem;font-weight:600;letter-spacing:.02em;}
+  .form-group input,.form-group select{
+    border:1.5px solid var(--line);border-radius:4px;padding:12px 14px;
+    background:var(--paper);font-family:var(--sans);font-size:.92rem;color:var(--ink);
+    transition:.2s ease;
+  }
+  .form-group input:focus,.form-group select:focus{border-color:var(--red);background:#fff;}
+  .cta-right button{width:100%;justify-content:center;margin-top:6px;}
+
+  /* ---------- footer ---------- */
+  footer.site{background:var(--ink);color:#C9C3B4;padding:64px 0 0;}
+  .foot-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;
+    padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.12);
+  }
+  .foot-brand{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+  .foot-brand img{height:44px;width:44px;filter:invert(1);opacity:.92;}
+  .foot-brand .fw1{font-family:var(--serif);font-weight:600;font-size:.98rem;color:#fff;}
+  .foot-brand .fw2{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#9C9686;}
+  .foot-col h5{
+    font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:#E7CFA8;margin-bottom:16px;
+  }
+  .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .foot-col a{font-size:.86rem;color:#C9C3B4;}
+  .foot-col a:hover{color:#fff;}
+  .foot-bottom{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+    padding:24px 0;font-size:.78rem;color:#8F897A;
+  }
+  .foot-bottom .socials{display:flex;gap:14px;}
+  .foot-bottom .socials a{
+    width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.18);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .foot-bottom .socials svg{width:15px;height:15px;fill:#C9C3B4;}
+  .foot-bottom .socials a:hover{border-color:#E7CFA8;}
+  .foot-bottom .socials a:hover svg{fill:#E7CFA8;}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.25,.46,.45,.94);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1000px){
+    nav.main-links{display:none;}
+    .menu-toggle{display:block;}
+    .hero .wrap{grid-template-columns:1fr;text-align:center;}
+    .seal-wrap{order:-1;}
+    .hero p.lede{margin-left:auto;margin-right:auto;}
+    .hero-actions,.hero-stats{justify-content:center;}
+    .prop-grid{grid-template-columns:repeat(2,1fr);}
+    .serv-grid{grid-template-columns:repeat(2,1fr);}
+    .field-grid{grid-template-columns:repeat(2,1fr);}
+    .blog-grid{grid-template-columns:repeat(2,1fr);}
+    .split-grid{grid-template-columns:1fr;}
+    .split-col.town{border-right:none;border-bottom:1px solid var(--line);}
+    .cta-card{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:2.3rem;}
+    .prop-grid,.serv-grid,.field-grid,.blog-grid{grid-template-columns:1fr;}
+    .trust .wrap{flex-direction:column;align-items:flex-start;}
+    .foot-grid{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .seal{width:260px;height:260px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar-left">
+      <span>PSRA Licence No. 004623</span>
+      <span>Proudly serving Co. Kerry &amp; Co. Cork</span>
+    </div>
+    <a class="phone" href="tel:0862716598">📞 086 271 6598</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site">
+  <div class="wrap nav-row">
+    <a href="#hero" class="brand">
+      <img src="logo.png" alt="O'Callaghan Town &amp; Country Real Estate logo">
+      <span class="brand-word">
+        <span class="line1">O'Callaghan</span>
+        <span class="line2">Town &amp; Country Real Estate</span>
+      </span>
+    </a>
+    <nav class="main-links">
+      <a href="#properties">Properties</a>
+      <a href="#help">FAQs</a>
+      <a href="#reviews">Our Clients</a>
+      <a href="#blog">Blog</a>
+      <a href="#field">About Me</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:0862716598" class="btn btn-outline">086 271 6598</a>
+      <a href="#contact" class="btn btn-solid">Free Home Evaluation</a>
+    </div>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">Kerry &amp; Cork, Ireland</span>
+      <h1>Real estate that still<br>feels like <em>a handshake.</em></h1>
+      <p class="lede">I'm Sherry O'Callaghan. Twenty years in sales and marketing, put to work for buyers and sellers across the town and the country — with a free home evaluation and no pressure to start.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-solid">Get My Free Home Evaluation →</a>
+        <a href="#properties" class="btn btn-outline">View Current Listings</a>
+      </div>
+      <div class="hero-stats">
+        <div><span class="num">20 yrs</span><span class="lab">In Sales &amp; Marketing</span></div>
+        <div><span class="num">36+</span><span class="lab">Client Reviews</span></div>
+        <div><span class="num">2</span><span class="lab">Counties Served</span></div>
+      </div>
+    </div>
+    <div class="seal-wrap reveal">
+      <div class="seal">
+        <div class="seal-core">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <circle cx="8.5" cy="8.5" r="3.2"/>
+            <circle cx="8.5" cy="8.5" r="1"/>
+            <line x1="10.8" y1="10.8" x2="19.5" y2="19.5"/>
+            <line x1="15.5" y1="15.5" x2="18" y2="13"/>
+            <line x1="17.5" y1="17.5" x2="20" y2="15"/>
+          </svg>
+          <span class="est">Est. Trust · Killarney</span>
+        </div>
+        <div class="seal-badge">
+          <span class="n">Free</span>
+          <span class="t">Evaluation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4z"/></svg>
+      <div><strong>PSRA Licensed</strong><span>No. 004623</span></div>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+      <div><strong>Free Home Evaluations</strong><span>No obligation, ever</span></div>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6L3.3 9.2l6.1-.6L12 3z"/></svg>
+      <div><strong>5.0 Rating</strong><span>Over 36 client reviews</span></div>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-8h6v8"/></svg>
+      <div><strong>Town &amp; Country</strong><span>Homes, sites &amp; land</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOWN & COUNTRY -->
+<section class="split" id="help">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-label">The Name, Explained</span>
+        <h2 class="section-title">Two ways I work — one way I care</h2>
+      </div>
+      <p class="section-desc">Whether it's a terraced house on a Killarney cul-de-sac or a quiet acre on the Dingle Peninsula, the approach is the same: honest advice, and negotiation I actually enjoy.</p>
+    </div>
+    <div class="split-grid reveal">
+      <div class="split-col town">
+        <span class="tag">Town</span>
+        <h3>Houses, apartments &amp; sale-agreed homes</h3>
+        <p>Semi-detached family homes, town apartments and terraced houses across Killarney, Tralee, Macroom and Cork City — handled from first viewing through to closing.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Buyer &amp; seller representation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Negotiation &amp; sale-agreed coordination</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Rental application guidance</li>
+        </ul>
+      </div>
+      <div class="split-col country">
+        <span class="tag">Country</span>
+        <h3>Sites, land &amp; coastal properties</h3>
+        <p>Acre sites near Mallow, seaside homes on Cromane Lower, and panoramic land on the Wild Atlantic Way — I know the difference planning permission makes, and I'll tell you straight.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Site &amp; land valuations</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Portfolio &amp; multi-property advice</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10"/></svg> Due diligence on rural sales</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section id="properties">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-label">Current Listings</span>
+        <h2 class="section-title">Properties available now</h2>
+      </div>
+      <p class="section-desc">A mix of family homes and sites across Kerry &amp; Cork — updated as soon as something new comes to market.</p>
+    </div>
+    <div class="prop-grid">
+
+      <!-- Property 1 -->
+      <div class="prop-card reveal">
+        <div class="prop-media">
+          <span class="prop-status">For Sale</span>
+          <img src="https://townandcountryrealestate.ie/wp-content/uploads/2026/07/0A41F79B-2A1F-4A65-A7F6-C43EF1318624-2.png" alt="16 Páirc An Tobar" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">Kanturk, Co. Cork</div>
+          <div class="prop-name">16 Páirc An Tobar — 5 Bed Detached House</div>
+          <div class="prop-specs"><span>🛏 5</span><span>🛁 3</span><span>📐 132 m²</span></div>
+          <div class="prop-price"><small>From</small>€350,000</div>
+        </div>
+      </div>
+
+      <!-- Property 2 -->
+      <div class="prop-card reveal">
+        <div class="prop-media">
+          <span class="prop-status">For Sale</span>
+          <img src="https://townandcountryrealestate.ie/wp-content/uploads/2024/08/V93V271-site2-1-1200x720.jpeg" alt="2.5 Acre Site" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">Aghadoe, Co. Kerry</div>
+          <div class="prop-name">2.5 Acre Site — No Planning Permission</div>
+          <div class="prop-specs"><span>📐 2.5 acres</span><span>📍 Near Killarney</span></div>
+          <div class="prop-price"><small>Guide</small>€275,000</div>
+        </div>
+      </div>
+
+      <!-- Property 3 -->
+      <div class="prop-card reveal">
+        <div class="prop-media">
+          <span class="prop-status">For Sale</span>
+          <img src="https://townandcountryrealestate.ie/wp-content/uploads/2024/08/Shinnagh-site-1.jpeg" alt="1.19 Acre Site" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">Rathcool, Mallow, Co. Cork</div>
+          <div class="prop-name">1.19 Acre Site — Crinnaloo</div>
+          <div class="prop-specs"><span>📐 1.19 acres</span><span>🧱 Foundation laid</span></div>
+          <div class="prop-price"><small>Guide</small>€69,000</div>
+        </div>
+      </div>
+
+      <!-- Property 4 -->
+      <div class="prop-card reveal">
+        <div class="prop-media">
+          <span class="prop-status">For Sale</span>
+          <img src="https://townandcountryrealestate.ie/wp-content/uploads/2026/02/V93X8D5.jpg" alt="12 Beech Road" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">Milltown, Co. Kerry</div>
+          <div class="prop-name">12 Beech Road — 3 Bed Semi-Detached</div>
+          <div class="prop-specs"><span>🛏 3</span><span>🛁 3</span><span>📐 111 m²</span></div>
+          <div class="prop-price"><small>From</small>€295,000</div>
+        </div>
+      </div>
+
+      <!-- Property 5 -->
+      <div class="prop-card reveal">
+        <div class="prop-media">
+          <span class="prop-status">For Sale</span>
+          <img src="https://townandcountryrealestate.ie/wp-content/uploads/2024/09/IMG_4259.jpg" alt="1.2 Acre Elevated Site" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">Rathcool, Co. Cork</div>
+          <div class="prop-name">1.2 Acre Elevated Site</div>
+          <div class="prop-specs"><span>📐 1.2 acres</span><span>🌾 Quiet rural road</span></div>
+          <div class="prop-price"><small>Guide</small>€75,000</div>
+        </div>
+      </div>
+
+      <!-- Property 6 -->
+      <div class="prop-card reveal">
+        <div class="prop-media">
+          <span class="prop-status">For Sale</span>
+          <img src="https://townandcountryrealestate.ie/wp-content/uploads/2025/05/P51AE65.jpg" alt="6 Castle Park" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">Killarney, Co. Kerry</div>
+          <div class="prop-name">6 Castle Park — 3 Bed Semi-Detached</div>
+          <div class="prop-specs"><span>🛏 3</span><span>🛁 3</span><span>📐 111 m²</span></div>
+          <div class="prop-price"><small>From</small>€412,000</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="view-all reveal"><a href="#" class="btn btn-outline">View All Properties For Sale</a></div>
+  </div>
+</section>
+<!-- SERVICES -->
+<section class="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-label">How I Can Help</span>
+        <h2 class="section-title">Real estate consulting, not just listings</h2>
+      </div>
+      <p class="section-desc">Twenty years in business, sales and marketing — used to protect your interests, not just move a sign into the garden.</p>
+    </div>
+  </div>
+  <div class="wrap" style="padding:0;">
+    <div class="serv-grid reveal">
+      <div class="serv-card">
+        <span class="idx">01</span>
+        <h4>Due Diligence</h4>
+        <p>The homework done before an offer, and after a contract is accepted — a key part of any transaction.</p>
+      </div>
+      <div class="serv-card">
+        <span class="idx">02</span>
+        <h4>Portfolio Services</h4>
+        <p>Asset allocation and risk management for owners with several properties, sites or land holdings.</p>
+      </div>
+      <div class="serv-card">
+        <span class="idx">03</span>
+        <h4>Market Studies</h4>
+        <p>Straight answers on timing a sale, or how much your upgrades may have added to value.</p>
+      </div>
+      <div class="serv-card">
+        <span class="idx">04</span>
+        <h4>Lease Advisory</h4>
+        <p>Fair rent guidance and negotiated contracts for street-front space and rental homes alike.</p>
+      </div>
+      <div class="serv-card">
+        <span class="idx">05</span>
+        <h4>Valuation Services</h4>
+        <p>Farms, apartment buildings, or a single family home — plus a completely free home evaluation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIELD NOTES -->
+<section class="field" id="field">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-label">From the Field</span>
+        <h2 class="section-title">Notes from Kerry &amp; Cork this month</h2>
+      </div>
+      <p class="section-desc">A running diary of sales, new listings and the odd bit of craic — @sherry.ocallaghan.estate.agent.</p>
+    </div>
+    <div class="field-grid">
+      <div class="field-card reveal">
+        <span class="field-date">Aug 26</span>
+        <p>Sale agreed on 9 Whitebridge Manor — a careful process coordinating existing tenants, the seller and interested buyers, handled fairly and in line with GDPR.</p>
+        <span class="field-tags">#SaleAgreed #Killarney</span>
+      </div>
+      <div class="field-card reveal">
+        <span class="field-date">Aug 25</span>
+        <p>A rare Cromane Lower listing that's really three homes in one — a main residence, a second en-suite unit, and a self-contained garden chalet, minutes from the beach.</p>
+        <span class="field-tags">#SeasideProperty #Kerry</span>
+      </div>
+      <div class="field-card reveal">
+        <span class="field-date">Aug 21</span>
+        <p>New listing in Gortdromakiery, Muckross — a spacious six-bedroom, four-bathroom dormer bungalow in a peaceful, private setting just minutes from Killarney town.</p>
+        <span class="field-tags">#Muckross #NewListing</span>
+      </div>
+      <div class="field-card reveal">
+        <span class="field-date">Aug 13</span>
+        <p>Two very different lifestyle properties this week — sweeping Atlantic views over Carhoo, Dunquin, or quiet seaside living at Illaunstookagh, Cromane Lower.</p>
+        <span class="field-tags">#DinglePeninsula #WildAtlanticWay</span>
+      </div>
+    </div>
+    <div class="field-foot reveal">
+      <a href="#" class="btn btn-ghost">Follow on Instagram →</a>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog" style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="section-label">Irish Real Estate Blog</span>
+        <h2 class="section-title">Straight answers, plainly written</h2>
+      </div>
+      <p class="section-desc">What's worth spending on before a sale, how title insurance works here, and other things I get asked every week.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <div class="blog-date">June 20, 2026</div>
+        <h4>Japanese Knotweed — is it really as bad as people say?</h4>
+        <a class="read" href="#">Read More →</a>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-date">May 19, 2026</div>
+        <h4>What Sellers Don't Need to Spend Money On</h4>
+        <a class="read" href="#">Read More →</a>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-date">April 22, 2026</div>
+        <h4>Best Practice for Rental Applications</h4>
+        <a class="read" href="#">Read More →</a>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-date">January 26, 2026</div>
+        <h4>How to Cut Down the Time Between Sale Agreed and Closing</h4>
+        <a class="read" href="#">Read More →</a>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-date">November 14, 2025</div>
+        <h4>Why You Don't Usually Need Title Insurance in Ireland</h4>
+        <a class="read" href="#">Read More →</a>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-date">January 10, 2024</div>
+        <h4>For Sale Signs Work</h4>
+        <a class="read" href="#">Read More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="wrap reveal">
+    <div class="stars">★★★★★</div>
+    <h3>Over 36 client reviews</h3>
+    <p>Every transaction matters — clients across Kerry &amp; Cork are the top priority, every time.</p>
+    <a href="#" class="btn btn-outline">Read More Reviews</a>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="cta" id="contact">
+  <div class="wrap reveal">
+    <div class="cta-card">
+      <div class="cta-left">
+        <span class="section-label">Free Home Evaluation</span>
+        <h3>Thinking of selling? Let's talk it through — no cost, no obligation.</h3>
+        <p>I visit the site, walk the property with you, and put together a report on how it compares to what's sold or listed nearby.</p>
+        <div class="cline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .6 3a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c1 .3 2 .5 3 .6a2 2 0 011.7 2z"/></svg>086 271 6598</div>
+        <div class="cline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4z"/></svg>PSRA Licence No. 004623</div>
+        <div class="cline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0112 5.5 5.5 5.5 0 0121.5 12c-2.5 4.4-9.5 9-9.5 9z"/></svg>Serving Co. Kerry &amp; Co. Cork</div>
+      </div>
+      <div class="cta-right">
+        <div class="form-row">
+          <div class="form-group"><label for="name">Full name</label><input id="name" type="text" placeholder="Mary O'Sullivan"></div>
+          <div class="form-group"><label for="tel">Phone</label><input id="tel" type="tel" placeholder="087 123 4567"></div>
+        </div>
+        <div class="form-group"><label for="loc">Property location</label><input id="loc" type="text" placeholder="e.g. Killarney, Co. Kerry"></div>
+        <div class="form-group"><label for="type">What are you looking to do?</label>
+          <select id="type">
+            <option>Sell my property</option>
+            <option>Buy a property</option>
+            <option>Get a valuation</option>
+            <option>Rent a property</option>
+          </select>
+        </div>
+        <button class="btn btn-solid">Request My Free Evaluation →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="logo.png" alt="O'Callaghan Town &amp; Country Real Estate">
+          <span>
+            <span class="fw1" style="display:block;">O'Callaghan</span>
+            <span class="fw2">Town &amp; Country Real Estate</span>
+          </span>
+        </div>
+        <p style="font-size:.86rem;max-width:280px;color:#9C9686;">Proudly serving home buyers and sellers across Co. Kerry &amp; Co. Cork, Ireland.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#properties">Properties For Sale</a></li>
+          <li><a href="#help">FAQs</a></li>
+          <li><a href="#reviews">Our Clients</a></li>
+          <li><a href="#blog">Irish Real Estate Blog</a></li>
+          <li><a href="#contact">Contact Me</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Property Types</h5>
+        <ul>
+          <li><a href="#">Detached House</a></li>
+          <li><a href="#">Semi-Detached House</a></li>
+          <li><a href="#">Bungalow</a></li>
+          <li><a href="#">Apartment</a></li>
+          <li><a href="#">Site &amp; Land</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Get In Touch</h5>
+        <ul>
+          <li><a href="tel:0862716598">086 271 6598</a></li>
+          <li><a href="#">PSRA No. 004623</a></li>
+          <li><a href="#">@sherry.ocallaghan.estate.agent</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 O'Callaghan Town &amp; Country Real Estate. All rights reserved.</span>
+      <div class="socials">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05v-2.66c0-3.03 1.79-4.7 4.53-4.7 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 011.77 1.15 4.9 4.9 0 011.15 1.77c.16.46.35 1.26.4 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 01-1.15 1.77 4.9 4.9 0 01-1.77 1.15c-.46.16-1.26.35-2.43.4-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 01-1.77-1.15 4.9 4.9 0 01-1.15-1.77c-.16-.46-.35-1.26-.4-2.43C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.97.4-2.43a4.9 4.9 0 011.15-1.77A4.9 4.9 0 015.55 1.8c.46-.16 1.26-.35 2.43-.4C9.25 1.34 9.63 1.33 12 1.33zM12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.55A6.9 6.9 0 002 2.14 6.9 6.9 0 00.55 4.62c-.29.76-.49 1.63-.55 2.9C-.01 8.8 0 9.21 0 12s.01 3.2.07 4.48c.06 1.28.26 2.14.55 2.9a6.9 6.9 0 001.45 2.48 6.9 6.9 0 002.48 1.45c.76.29 1.63.49 2.9.55 1.28.06 1.69.07 4.55.07s3.27-.01 4.55-.07c1.28-.06 2.14-.26 2.9-.55a6.9 6.9 0 002.48-1.45 6.9 6.9 0 001.45-2.48c.29-.76.49-1.62.55-2.9.06-1.28.07-1.69.07-4.48s-.01-3.2-.07-4.48c-.06-1.28-.26-2.14-.55-2.9A6.9 6.9 0 0021.38 2.1a6.9 6.9 0 00-2.48-1.45c-.76-.29-1.62-.49-2.9-.55C14.72.01 14.31 0 12 0z"/><circle cx="12" cy="12" r="3.2"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.53.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97a7.2 7.2 0 01-1.62-.93c-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  revealEls.forEach(el=>io.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      const id = a.getAttribute('href');
+      if(id.length>1){
+        const t = document.querySelector(id);
+        if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+      }
+    });
+  });
+</script>
+</body>
+</html>
